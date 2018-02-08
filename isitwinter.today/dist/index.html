@@ -63,6 +63,52 @@
                 }
             }
 
+            #gdpr {
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+            }
+
+            #gdpr-popup {
+                position: fixed;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: rgba(100, 0, 0, 0.7);
+                transition: opacity 500ms;
+                visibility: hidden;
+                opacity: 0;
+                border: 1px solid red;
+                animation: pulse 2s infinite;                
+            }
+
+            #gdpr-popup:target {
+                visibility: visible;
+                opacity: 1;
+            }
+            .popup {
+                margin: 70px auto;
+                padding: 20px;
+                background: #000;
+                border-radius: 5px;
+                width: 30%;
+                position: relative;
+                transition: all 5s ease-in-out;
+                text-align: left;
+            }
+
+            .popup h4 {
+                margin: 0px;
+            }
+
+            .popup .close {
+                font-size: 20px;
+                position: absolute;
+                top: 5px;
+                right: 20px;
+            }
+
         </style>
         <link href="https://fonts.googleapis.com/css?family=Cardo|Open+Sans" rel="stylesheet"> 
     </head>
@@ -73,8 +119,22 @@
             <i>don't worry, we'll get there! </i>
         </div>
         <div id="gdpr">
-            
+            <a href="#gdpr-popup" >Privacy Notice and Terms and Conditions</a>
         </div>
+
+        <div id="gdpr-popup">
+            <div class="popup">
+                <a class="close" href="#">&times;</a>
+                <h4>Privacy Notice and Terms and Conditions</h4>
+                <p>
+                        The Information Commissioner’s Office (ICO) has very kindly provided a sample privacy notice that you can use on your website. It is concise, transparent, and easily accessible.
+                </p>
+                <p>
+                        You will also need to update your terms and conditions on your website to reference GDPR terminology. In particular, you will need to make it transparent what you will do with the information once you’ve received it, and how long you will retain this information both on your website and also by your office systems.
+                </p>                
+            </div>
+        </div>
+        
         <audio src="./snd/wind.mp3" autoplay loop />    
     </body>
 </html>
