@@ -1,6 +1,6 @@
 {
     "files": [
-      "index.html"
+      "./dist/index.html"
     ],
     "indentation": {
       "char": "space",
