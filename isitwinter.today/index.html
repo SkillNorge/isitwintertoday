@@ -30,7 +30,8 @@
             h1 {
                 font-size: 172px;
                 font-weight: bold;
-                margin: 0px;
+                margin: 0px;                
+                animation: pulse 2s infinite;
             }
 
             i {
@@ -46,6 +47,21 @@
                 color:gold;
                 text-decoration: none;
             }            
+
+            @keyframes pulse {
+                0% {
+                    text-shadow: red 0px 0px 10px;
+                }
+                25% {
+                    text-shadow: gold 0px 0px 20px;
+                }                
+                50% {
+                    text-shadow: goldenrod 0px 0px 30px;
+                }
+                100% {
+                    text-shadow: red 0px 0px 10px;
+                }
+            }
 
         </style>
         <link href="https://fonts.googleapis.com/css?family=Cardo|Open+Sans" rel="stylesheet"> 
