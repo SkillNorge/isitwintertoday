@@ -1,0 +1,15 @@
+{
+  "name": "isitwinter.today",
+  "version": "1.0.0",
+  "description": "The website for isitwinter.today for ACDC 2018",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:html": "html-linter --config html-linter.json"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "html-linter": "^1.0.8"
+  }
+}
