@@ -6,6 +6,7 @@
         <title>Is it winter, today?</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <script src="./script.js"></script>
         <style>
             html {
                 height: 100%;
@@ -87,6 +88,7 @@
                 visibility: visible;
                 opacity: 1;
             }
+
             .popup {
                 margin: 70px auto;
                 padding: 20px;
@@ -109,19 +111,137 @@
                 right: 20px;
             }
 
+            .popup-buy {
+                position: absolute;
+                bottom: 0px;
+                width: 30%;
+                max-width: 300px;
+                /* height: 50%; */
+                background: rgba(0,0,0,0.8);
+                border-radius: 10px;
+                color:white;
+                animation: hover 2s infinite;   
+                text-align: center;
+                max-height: 0px;
+                transition-property: all;
+                transition-duration: .5s;
+                transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+                overflow: hidden;
+                box-shadow:red 0px 0px 20px;
+            }
+
+            .popup-buy.visible {
+                max-height: 600px;
+                box-shadow: #fff 0px 0px 0px;
+            }
+
+            .popup-male {
+                left: 5%;
+            }
+
+            .popup-female {
+                right: 5%;
+            }
+
+            .popup-horse {
+                left: 45%;
+            }
+
+            .popup-buy h4 {
+                font-size: 20px;
+            }
+
+            .popup-buy img {
+                max-width: 100%;
+                min-height: 300px;
+                margin-bottom: 70px;
+            }
+
+            .popup-buy .overlay {
+                position: absolute;
+                bottom: 30px;
+                width: 100%;
+            }
+
+            .popup-buy .button {
+                margin: 10px;
+                padding: 10px;
+                background-color: hsl(0,0%,90%);
+                border-radius: 4px;
+                font-weight: boldD;
+                color: #333;
+            }
+
+            .popup-buy .button:hover {
+                background: goldenrod;
+            }
+
+            video {
+                display: none;
+            }
+
+            canvas {
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                opacity: 0.1;
+            }
+        
+            @keyframes hover {
+                0% {
+                    bottom: 0px;
+
+                }
+                50% {
+                    bottom: -10px;
+
+                }                
+                100% {
+                    bottom: 0px;
+
+                }
+            }            
+
         </style>
         <link href="https://fonts.googleapis.com/css?family=Cardo|Open+Sans" rel="stylesheet"> 
     </head>
     <body>
         <div id="container">
-            <h2>...Winter is coming, but <a href="https://isitwinter.today">isitwinter.today</a> ?</h2>
+             <h2>...Winter is coming, but <a href="https://isitwinter.today">isitwinter.today</a> ?</h2>
             <h1>NO</h1>
             <i>don't worry, we'll get there! </i>
         </div>
         <div id="gdpr">
             <a href="#gdpr-popup" >Privacy Notice and Terms and Conditions</a>
         </div>
+        
+        <div id="popup-male" class="popup-buy popup-male">
+            <h4>It's getting cold...</h4>
+            <img src="./img/coat-male.png" />
+            <div class="overlay">
+                <h3>Do you want to buy <span class="count">a coat</span>?</h3>
+                <a href="http://isitwintershop.azurewebsites.net/product/coat/" class="button">Yes! I need a coat!</a>
+            </div>
+        </div>
 
+        <div id="popup-female" class="popup-buy popup-female">
+            <h4>It's getting cold...</h4>
+            <img src="./img/coat-female.png" />
+            <div class="overlay">
+                <h3>Do you want to buy <span class="count">a coat</span>?</h3>
+                <a href="http://isitwintershop.azurewebsites.net/product/sexy-dress/" class="button">Yes! I need a coat!</a>
+            </div>
+        </div>
+
+        <div id="popup-horse" class="popup-buy popup-horse">
+                <h4>It's getting cold...</h4>
+                <img src="http://isitwintershop.azurewebsites.net/wp-content/uploads/2018/02/petdress.jpg" />
+                <div class="overlay">
+                    <h3>Do you want to buy <span class="count">a coat</span>?</h3>
+                    <a href="http://isitwintershop.azurewebsites.net/product/sexy-dress/" class="button">Yes! I need a coat!</a>
+                </div>
+            </div>        
+        
         <div id="gdpr-popup">
             <div class="popup">
                 <a class="close" href="#">&times;</a>
@@ -134,7 +254,11 @@
                 </p>                
             </div>
         </div>
-        
-        <audio src="./snd/wind.mp3" autoplay loop />    
+
+        <video id="video" autoplay></video>
+        <img src="">
+        <canvas id="canvas"></canvas>
+
+        <audio src="./snd/wind.mp3" autoplay loop />
     </body>
 </html>
